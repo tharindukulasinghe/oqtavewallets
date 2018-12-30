@@ -7,12 +7,14 @@
           *ngFor="let c of catogeries"
           routerLink="/"
           [queryParams]="{ category: c.key }"
-          [class.active]="category === c.key"
+          [class.active]="category == c.key"
         >
           {{ c.name }}
         </a>
       </div>
     </div>
-    <div class="col">bye</div>
+    <div class="col-9">
+      <app-items></app-items>
+    </div>
   </div>
 </div>
