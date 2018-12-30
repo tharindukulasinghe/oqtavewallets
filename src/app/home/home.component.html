@@ -1,8 +1,18 @@
-<div class="container">
+<div class="container pulldown">
   <div class="row">
-    <div class="col-3">hi</div>
-    <div class="col">
-      <app-items></app-items>
+    <div class="col-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action"
+          *ngFor="let c of catogeries"
+          routerLink="/"
+          [queryParams]="{ category: c.key }"
+          [class.active]="category === c.key"
+        >
+          {{ c.name }}
+        </a>
+      </div>
     </div>
+    <div class="col">bye</div>
   </div>
 </div>
