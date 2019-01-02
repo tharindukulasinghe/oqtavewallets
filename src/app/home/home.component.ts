@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+import { routerNgProbeToken } from "@angular/router/src/router_module";
 
 @Component({
   selector: "app-home",
@@ -15,13 +17,30 @@ export class HomeComponent implements OnInit {
     { name: "Accessories", key: "ac" }
   ];
 
-  category: String;
+  category: String = "mw";
+  items;
 
-  constructor(route: ActivatedRoute) {
+  constructor(
+    route: ActivatedRoute,
+    private http: HttpClient,
+    private router: Router
+  ) {
     route.queryParamMap.subscribe(params => {
       this.category = params.get("category");
+    });
+
+    this.http.get("http://localhost:3000/getMensWallets").subscribe(res => {
+      this.items = res;
     });
   }
 
   ngOnInit() {}
+
+  categoryItemClicked(item) {
+    console.log(item);
+  }
+
+  itemClicked(i) {
+    this.router.navigate([`/checkout`, i]);
+  }
 }

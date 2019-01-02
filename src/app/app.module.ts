@@ -1,13 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ItemsComponent } from './items/items.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { ItemsComponent } from "./items/items.component";
+import { NavBarComponent } from "./nav-bar/nav-bar.component";
+import { HomeComponent } from "./home/home.component";
+import { AboutComponent } from "./about/about.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
+import { ImageuploadComponent } from "./imageupload/imageupload.component";
+import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { CheckoutComponent } from './checkout/checkout.component';
     NavBarComponent,
     HomeComponent,
     AboutComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ImageuploadComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgbCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,4 @@
-<div class="container pulldown">
+<div class="container pulldown bg-light">
   <div class="row">
     <div class="col-sm-3">
       <div class="list-group">
@@ -8,18 +8,38 @@
           routerLink="/"
           [queryParams]="{ category: c.key }"
           [class.active]="category == c.key"
+          (click)="categoryItemClicked(c.key)"
         >
           {{ c.name }}
         </a>
       </div>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-9 text-center">
       <div class="row">
-        <div class="col-sm-4"><app-items></app-items></div>
-        <div class="col-sm-4"><app-items></app-items></div>
-        <div class="col-sm-4"><app-items></app-items></div>
-        <div class="col-sm-4"><app-items></app-items></div>
-        <div class="col-sm-4"><app-items></app-items></div>
+        <div class="col-sm-4" *ngFor="let i of items">
+          <div
+            class="card"
+            style="width: 14rem; margin-bottom: 20px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+          >
+            <img [src]="i.photo_url" class="card-img-top" />
+            <div class="card-body">
+              <h6 class="card-title">{{ i.name }}</h6>
+              <p class="card-text">{{ i.price | currency }}</p>
+
+              <div class="container text-center">
+                <div class="row">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-block"
+                    (click)="itemClicked(i.id)"
+                  >
+                    Continue
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
