@@ -11,6 +11,7 @@ import { AboutComponent } from "./about/about.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { ImageuploadComponent } from "./imageupload/imageupload.component";
 import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
     HomeComponent,
     AboutComponent,
     CheckoutComponent,
-    ImageuploadComponent
+    ImageuploadComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
